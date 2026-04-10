@@ -22,12 +22,14 @@ public class Transaction {
 		this.id = id;
 	}
 
-	public Long getUser_id() {
-		return user_id;
+
+
+	public Long getUserId() {
+		return userId;
 	}
 
-	public void setUser_id(Long user_id) {
-		this.user_id = user_id;
+	public void setUserId(Long userId) {
+		this.userId = userId;
 	}
 
 	public String getType() {
@@ -62,35 +64,46 @@ public class Transaction {
 		this.description = description;
 	}
 
-	public String getPayment_method() {
-		return payment_method;
+
+
+
+
+
+
+	public String getPaymentMethod() {
+		return paymentMethod;
 	}
 
-	public void setPayment_method(String payment_method) {
-		this.payment_method = payment_method;
+	public void setPaymentMethod(String paymentMethod) {
+		this.paymentMethod = paymentMethod;
+	}
+
+	public Boolean getIsRecurring() {
+		return isRecurring;
+	}
+
+	public void setIsRecurring(Boolean isRecurring) {
+		this.isRecurring = isRecurring;
 	}
 
 
 
-	public Boolean getIs_recurring() {
-		return is_recurring;
-	}
 
-	public void setIs_recurring(Boolean is_recurring) {
-		this.is_recurring = is_recurring;
-	}
+
+
 
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    private Long user_id;
+	@Column(name = "user_id")
+    private Long userId;
 
     private String type;
     private Double amount;
     private String category;
     private String description;
-    private String payment_method;
+    @Column(name = "payment_Method")
+    private String paymentMethod;
     
       
 //    @DateTimeFormat(pattern = "yyyy-MM-dd")
@@ -106,6 +119,6 @@ public class Transaction {
 	public void setTransactionDate(LocalDate transactionDate) {
 		this.transactionDate = transactionDate;
 	}
-
-	private Boolean is_recurring;
+	@Column(name = "is_recurring")
+	private Boolean isRecurring;
 }
